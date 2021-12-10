@@ -19,12 +19,14 @@ app.use('/users', require('./routes/users.js'));
 app.use('/admin', require('./routes/admin.js'));
 app.use('/vacation', require('./routes/vacation.js'));
 
-app.use(express.static(path.resolve(__dirname, "./client/build")));
-
-
-app.get('/*', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));  // set static folder 
+    //returning frontend for any route other than api 
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build',
+            'index.html'));
+    });
+}
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}!`);
