@@ -20,7 +20,7 @@ router.post('/add', onlyAdmin, async (req, res) => {
 router.delete('/:id', onlyAdmin, async (req, res) => {
     try {
         const { id } = req.params;
-        await myQuery(`DELETE FROM followingusers WHERE vacationID = ${id}`);
+        await myQuery(`DELETE FROM followingUsers WHERE vacationID = ${id}`);
         await myQuery(`DELETE FROM vacations WHERE id = ${id}`);
         res.status(200).send({ msg: "vacation deleted successfuly" });
     } catch (err) {

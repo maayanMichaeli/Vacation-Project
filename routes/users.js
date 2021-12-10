@@ -48,10 +48,10 @@ router.post('/follow/:vacationID', onlyUsers, async (req, res) => {
         if (follow.length) return res.status(401).send('you already follow this vacation');
         await myQuery(`INSERT INTO followingUsers (userID,vacationID) VALUES (${id},${vacationID})`);
         const vac = await myQuery(`SELECT vacations.id, vacations.title, vacations.description, vacations.destination, vacations.img, vacations.arrDate, vacations.retDate, vacations.price
-        FROM vacations LEFT JOIN followingusers ON vacations.id = followingUsers.vacationID WHERE userID = ${id}
+        FROM vacations LEFT JOIN followingUsers ON vacations.id = followingUsers.vacationID WHERE userID = ${id}
         UNION
         SELECT vacations.id, vacations.title, vacations.description, vacations.destination, vacations.img, vacations.arrDate, vacations.retDate, vacations.price
-        FROM vacations LEFT JOIN followingusers ON vacations.id = followingUsers.vacationID
+        FROM vacations LEFT JOIN followingUsers ON vacations.id = followingUsers.vacationID
         GROUP BY vacations.id`);
         res.status(200).send(vac);
     } catch (err) {
@@ -66,10 +66,10 @@ router.delete('/unfollow/:vacationID', onlyUsers, async (req, res) => {
         const { vacationID } = req.params;
         await myQuery(`DELETE FROM followingUsers WHERE userID = ${id} AND vacationID = ${vacationID}`);
         const vac = await myQuery(`SELECT vacations.id, vacations.title, vacations.description, vacations.destination, vacations.img, vacations.arrDate, vacations.retDate, vacations.price
-        FROM vacations LEFT JOIN followingusers ON vacations.id = followingUsers.vacationID WHERE userID = ${id}
+        FROM vacations LEFT JOIN followingUsers ON vacations.id = followingUsers.vacationID WHERE userID = ${id}
         UNION
         SELECT vacations.id, vacations.title, vacations.description, vacations.destination, vacations.img, vacations.arrDate, vacations.retDate, vacations.price
-        FROM vacations LEFT JOIN followingusers ON vacations.id = followingUsers.vacationID
+        FROM vacations LEFT JOIN followingUsers ON vacations.id = followingUsers.vacationID
         GROUP BY vacations.id`);
         res.status(200).send(vac);
     } catch (err) {

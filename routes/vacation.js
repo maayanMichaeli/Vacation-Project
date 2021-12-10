@@ -9,12 +9,12 @@ router.get('/', onlyLoggedUsers, async (req, res) => {
     try {
         const { id } = req.session.user;
         const vac = await myQuery(`SELECT vacations.id, vacations.title, vacations.description, vacations.destination, vacations.img, vacations.arrDate, vacations.retDate, vacations.price
-        FROM vacations LEFT JOIN followingusers ON vacations.id = followingUsers.vacationID WHERE userID = ${id}
+        FROM vacations LEFT JOIN followingUsers ON vacations.id = followingUsers.vacationID WHERE userID = ${id}
         UNION
         SELECT vacations.id, vacations.title, vacations.description, vacations.destination, vacations.img, vacations.arrDate, vacations.retDate, vacations.price
-        FROM vacations LEFT JOIN followingusers ON vacations.id = followingUsers.vacationID
+        FROM vacations LEFT JOIN followingUsers ON vacations.id = followingUsers.vacationID
         GROUP BY vacations.id`);
-        const followedArr = await myQuery(`SELECT vacations.id FROM vacations LEFT JOIN followingusers ON vacations.id = followingUsers.vacationID WHERE userID = ${id}`);
+        const followedArr = await myQuery(`SELECT vacations.id FROM vacations LEFT JOIN followingUsers ON vacations.id = followingUsers.vacationID WHERE userID = ${id}`);
         const followedIdArr = followedArr.map(f => f.id);
         for (const vacation of vac) {
             vacation.follow = followedIdArr.includes(vacation.id);
