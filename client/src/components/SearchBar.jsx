@@ -29,7 +29,7 @@ function SearchBar({ vacation }) {
     const handleClose = () => setOpen(false);
 
     const searchDesc = async () => {
-        const res = await fetch(`http://localhost:1000/vacation/search`, {
+        const res = await fetch(`/vacation/search`, {
             method: 'post',
             body: JSON.stringify({ destination: searchDes }),
             credentials: "include",

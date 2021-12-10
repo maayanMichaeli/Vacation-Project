@@ -38,7 +38,7 @@ export default function AddVac({ vacation, setVacations, updateView, arrDate, re
     };
 
     const handleNewVac = async () => {
-        const res = await fetch(`http://localhost:1000/admin/add`, {
+        const res = await fetch(`/admin/add`, {
             method: 'post',
             body: JSON.stringify({ title, destination, arrDate: arrival, retDate: returnDate, img, description, price }),
             credentials: "include",

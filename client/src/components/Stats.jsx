@@ -27,7 +27,7 @@ function Stats() {
     const [stats, setStats] = useState([]);
 
     const getStatsData = async () => {
-        const res = await fetch('http://localhost:1000/admin/stats', {
+        const res = await fetch('/admin/stats', {
             credentials: 'include'
         });
         const data = await res.json();

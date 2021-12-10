@@ -21,7 +21,7 @@ export default function Register() {
     const [password, setPassword] = useState("");
 
     const handleRegister = async () => {
-        const res = await fetch("http://localhost:1000/users/register", {
+        const res = await fetch("/users/register", {
             method: "post",
             body: JSON.stringify({ firstName, lastName, userName, password }),
             credentials: "include",

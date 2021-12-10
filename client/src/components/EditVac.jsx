@@ -34,7 +34,7 @@ export default function EditVac({ vacation, setVacations, updateView, arrDate, r
     const handleClose = () => setOpen(false);
 
     const handleEdit = async () => {
-        const res = await fetch(`http://localhost:1000/admin/${vacation.id}`, {
+        const res = await fetch(`/admin/${vacation.id}`, {
             method: 'put',
             body: JSON.stringify({ title, destination, arrDate: arrival, retDate: returnDate, img, description, price }),
             credentials: "include",

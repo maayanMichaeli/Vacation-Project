@@ -13,7 +13,7 @@ export default function Blog() {
   const [vacations, setVacations] = useState([]);
 
   const updateView = async () => {
-    fetch(`http://localhost:1000/vacation`, {
+    fetch(`/vacation`, {
       credentials: 'include'
     })
       .then(res => res.json())
@@ -30,7 +30,7 @@ export default function Blog() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header vacation={vacations} setVacations={setVacations} updateView={updateView} title={localStorage.user == "user" ? "Your Next Vacation" : "Admin"} />
+        <Header vacation={vacations} setVacations={setVacations} updateView={updateView} title={localStorage.user === "user" ? "Your Next Vacation" : "Admin"} />
       </Container>
       <Container>
         <SearchBar vacation={vacations} />

@@ -12,7 +12,7 @@ import EditVac from './EditVac';
 function FeaturedPost({ vacation, setVacations, updateView }) {
 
     const followVac = async () => {
-        const res = await fetch(`http://localhost:1000/users/follow/${vacation.id}`, {
+        const res = await fetch(`/users/follow/${vacation.id}`, {
             method: 'post',
             credentials: 'include',
         });
@@ -23,7 +23,7 @@ function FeaturedPost({ vacation, setVacations, updateView }) {
     };
 
     const unfollowVac = async () => {
-        const res = await fetch(`http://localhost:1000/users/unfollow/${vacation.id}`, {
+        const res = await fetch(`/users/unfollow/${vacation.id}`, {
             method: 'delete',
             credentials: 'include',
         });

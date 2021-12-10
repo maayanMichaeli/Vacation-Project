@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function DeleteVac({ vacation, updateView }) {
     const handleDel = async () => {
-        const res = await fetch(`http://localhost:1000/admin/${vacation.id}`, {
+        const res = await fetch(`/admin/${vacation.id}`, {
             method: 'delete',
             credentials: 'include',
         });

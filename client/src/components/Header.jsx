@@ -6,12 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { useHistory } from 'react-router';
 import AddVac from './AddVac';
-import Stats from './Stats';
 
 function Header(props) {
     const history = useHistory();
     const handleLogout = async () => {
-        const res = await fetch('http://localhost:1000/users/logout', {
+        const res = await fetch('/users/logout', {
             method: 'delete'
         });
         const data = await res.json();
@@ -29,8 +28,8 @@ function Header(props) {
     return (
         <React.Fragment>
             <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                {localStorage.user == 'admin' ? <Button variant="contained" size="small" onClick={directToStats}>Stats</Button> : null}
-                {localStorage.user == 'admin' ? <AddVac vacation={vacation} setVacations={setVacations} updateView={updateView} arrDate={arrDate} retDate={retDate} /> : null}
+                {localStorage.user === 'admin' ? <Button variant="contained" size="small" onClick={directToStats}>Stats</Button> : null}
+                {localStorage.user === 'admin' ? <AddVac vacation={vacation} setVacations={setVacations} updateView={updateView} arrDate={arrDate} retDate={retDate} /> : null}
                 <Typography
                     component="h2"
                     variant="h5"
