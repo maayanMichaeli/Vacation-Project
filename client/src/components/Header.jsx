@@ -30,6 +30,7 @@ function Header(props) {
             <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 {localStorage.user === 'admin' ? <Button variant="contained" size="small" onClick={directToStats}>Stats</Button> : null}
                 {localStorage.user === 'admin' ? <AddVac vacation={vacation} setVacations={setVacations} updateView={updateView} arrDate={arrDate} retDate={retDate} /> : null}
+                {localStorage.user === 'user' ? <img src="https://cdn.travalliancemedia.com/images/ba41352b-9cdc-e511-8b9f-0050568e420d/56a00de8-b0b6-febf-19be-6a0af7ee2a92/457x182.png" width={200} height={100} /> : null}
                 <Typography
                     component="h2"
                     variant="h5"

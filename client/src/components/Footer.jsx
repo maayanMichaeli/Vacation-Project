@@ -20,6 +20,7 @@ function Footer({ title }) {
                     component="p"
                 >
                 </Typography>
+                <img src="https://cdn.travalliancemedia.com/images/ba41352b-9cdc-e511-8b9f-0050568e420d/56a00de8-b0b6-febf-19be-6a0af7ee2a92/457x182.png" />
             </Container>
         </Box>
     );

@@ -30,7 +30,7 @@ export default function Blog() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header vacation={vacations} setVacations={setVacations} updateView={updateView} title={localStorage.user === "user" ? "Your Next Vacation" : "Admin"} />
+        <Header vacation={vacations} setVacations={setVacations} updateView={updateView} title={localStorage.user === "user" ? "Best Vacations - Find Your Destination" : "Admin"} />
       </Container>
       <Container>
         <SearchBar vacation={vacations} />
@@ -39,7 +39,7 @@ export default function Blog() {
         {vacations.map(vacation => <FeaturedPost key={vacation.id} vacation={vacation} setVacations={setVacations} updateView={updateView} />)}
       </Container>
       <Container>
-        <Footer title="Some Footer Text" />
+        <Footer title="Your Next vacation Is Right Around The Corner" />
       </Container>
     </ThemeProvider>
   );
