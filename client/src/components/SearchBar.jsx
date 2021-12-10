@@ -7,16 +7,18 @@ import FeaturedPost from './FeatheredPost';
 
 const style = {
     position: 'absolute',
-    overflow: 'auto',
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 1000,
+    width: '70vw',
+    height: '100vh',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
+    overflow: 'scroll',
     p: 4,
 };
 
@@ -60,7 +62,7 @@ function SearchBar({ vacation }) {
                     <Typography id="modal-modal-title" variant="h4">
                         Search Results
                     </Typography>
-                    <Grid id="modal-modal-description" sx={{ mt: 6, display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    <Grid id="modal-modal-description" sx={{ mt: 4, display: 'flex', flexDirection: 'column', gap: 1 }}>
                         {searchedVac.map(vac => <FeaturedPost vacation={vac} />)}
                         <Button onClick={handleClose} variant="contained">Close</Button>
                     </Grid>
