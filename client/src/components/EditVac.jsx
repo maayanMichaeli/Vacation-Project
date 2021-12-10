@@ -21,11 +21,11 @@ const style = {
     p: 4,
 };
 
-export default function EditVac({ vacation, setVacations, updateView, arrDate, retDate }) {
+export default function EditVac({ vacation, setVacations, updateView }) {
     const [title, setTitle] = useState(vacation.title);
     const [destination, setDestination] = useState(vacation.title);
-    const [arrival, setArrival] = useState(arrDate);
-    const [returnDate, setReturnDate] = useState(retDate);
+    const [arrival, setArrival] = useState(vacation.arrDate);
+    const [returnDate, setReturnDate] = useState(vacation.retDate);
     const [img, setImg] = useState(vacation.img);
     const [description, setDescription] = useState(vacation.description);
     const [price, setPrice] = useState(vacation.price);
