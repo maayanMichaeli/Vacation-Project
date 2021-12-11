@@ -23,7 +23,7 @@ const style = {
 
 export default function EditVac({ vacation, setVacations, updateView }) {
     const [title, setTitle] = useState(vacation.title);
-    const [destination, setDestination] = useState(vacation.title);
+    const [destination, setDestination] = useState(vacation.destination);
     const [arrival, setArrival] = useState(vacation.arrDate);
     const [returnDate, setReturnDate] = useState(vacation.retDate);
     const [img, setImg] = useState(vacation.img);
