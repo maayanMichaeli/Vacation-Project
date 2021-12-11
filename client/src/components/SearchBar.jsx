@@ -49,7 +49,7 @@ function SearchBar({ vacation }) {
     return (
         <div className="search">
             <Grid>
-                <TextField size='small' type="text" placeholder="Search By Description" onChange={e => setSearchDes(e.target.value)} />
+                <TextField size='small' type="text" placeholder="Search By Destination" onChange={e => setSearchDes(e.target.value)} />
                 <Button id="description" variant='contained' size="small" onClick={searchDesc}>🔎</Button>
             </Grid>
             <Modal
