@@ -31,7 +31,7 @@ router.delete('/:id', onlyAdmin, async (req, res) => {
 
 router.get('/stats', onlyAdmin, async (req, res) => {
     try {
-        const stats = await myQuery('SELECT userID as following , vacations.destination FROM followingUsers INNER JOIN vacations on vacations.id = followingUsers.vacationID GROUP BY vacationID');
+        const stats = await myQuery('SELECT COUNT(userID) as following ,vacations.destination FROM followingUsers INNER JOIN vacations on vacations.id = followingUsers.vacationID GROUP BY vacationID');
         res.status(200).send(stats);
     } catch (error) {
         res.status(500).send(err);
