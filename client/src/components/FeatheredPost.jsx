@@ -30,6 +30,7 @@ function FeaturedPost({ vacation, setVacations, updateView }) {
         const data = await res.json();
         if (!data.err) {
             updateView();
+            console.log('updated');
         }
 
     };
